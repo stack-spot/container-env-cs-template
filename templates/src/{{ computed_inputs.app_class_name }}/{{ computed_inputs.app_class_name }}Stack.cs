@@ -35,19 +35,9 @@ namespace {{ computed_inputs.app_class_name }}
                 {% endif %}
             });
 
-            string[] ingressIpv4Source = {
-                {% set ingress_ipv4_sources = inputs.container_ingress_ipv4_sources.replace(' ', '').split(',') %}
-                {% for ingress_ipv4_source in ingress_ipv4_sources %}
-                "{{ ingress_ipv4_source }}",
-                {% endfor %}
-            };
-
             ContainerEnvComponent environment = new ContainerEnvComponent(this, "{{ computed_inputs.app_class_name }}Container", new ContainerEnvComponentProps{
                 ClusterName = "{{ computed_inputs.app_class_name }}Cluster",
                 ContainerInsights = {% if inputs.container_insights %}true{% else %}false{% endif %},
-                IngressIpv4Source = ingressIpv4Source,
-                InternetFacing = {% if inputs.internet_facing %}true{% else %}false{% endif %},
-                SampleApp = {% if inputs.sample_app %}true{% else %}false{% endif %},
                 Subnets = vpcEnvComponent.Subnets,
                 Vpc = vpcEnvComponent.Vpc
             });
