@@ -1,10 +1,13 @@
 # container-env-cs-template
 
+[![version][badge-version]][releases]
+[![license][badge-license]][license]
+
 Template to create a container environment.
 
-### IAM Least privilege
+## IAM Least privilege
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -70,10 +73,14 @@ Template to create a container environment.
 
 ### Prerequisites
 
-- [.NET 5.0][dotnet]
+- [.NET][dotnet] >= 3.1
 - [EditorConfig][editorconfig] (Optional)
 - [Git][git]
 
-[dotnet]: https://dotnet.microsoft.com/en-us/download/dotnet/5.0
+[badge-license]: https://img.shields.io/github/license/stack-spot/container-env-cs-template
+[badge-version]: https://img.shields.io/github/v/tag/stack-spot/container-env-cs-template?include_prereleases
+[dotnet]: https://dotnet.microsoft.com/download/dotnet
 [editorconfig]: https://editorconfig.org/
 [git]: https://git-scm.com/downloads
+[license]: https://github.com/stack-spot/container-env-cs-template/blob/main/LICENSE
+[releases]: https://github.com/stack-spot/container-env-cs-template/releases
