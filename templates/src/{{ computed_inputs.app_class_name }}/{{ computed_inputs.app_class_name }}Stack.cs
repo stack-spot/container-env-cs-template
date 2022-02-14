@@ -19,7 +19,8 @@ namespace {{ computed_inputs.app_class_name }}
             };
 
             {% endif %}
-            VpcEnvComponent vpcEnvComponent = new VpcEnvComponent(this, "{{ computed_inputs.app_class_name }}Vpc", new VpcEnvComponentProps{
+            VpcEnvComponent vpcEnvComponent = new VpcEnvComponent(this, "{{ computed_inputs.app_class_name }}Vpc", new VpcEnvComponentProps
+            {
                 {% if inputs.container_has_vpc %}
                 SubnetsIds = subnetsIds,
                 SubnetsType = SubnetType.{{ inputs.container_subnet_type }},
@@ -35,7 +36,8 @@ namespace {{ computed_inputs.app_class_name }}
                 {% endif %}
             });
 
-            ContainerEnvComponent environment = new ContainerEnvComponent(this, "{{ computed_inputs.app_class_name }}Container", new ContainerEnvComponentProps{
+            ContainerEnvComponent environment = new ContainerEnvComponent(this, "{{ computed_inputs.app_class_name }}Container", new ContainerEnvComponentProps
+            {
                 ClusterName = "{{ computed_inputs.app_class_name }}Cluster",
                 ContainerInsights = {% if inputs.container_insights %}true{% else %}false{% endif %},
                 Subnets = vpcEnvComponent.Subnets,
